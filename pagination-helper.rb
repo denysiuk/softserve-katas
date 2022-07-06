@@ -19,9 +19,9 @@ class PaginationHelper
   # returns the number of items on the current page. page_index is zero based.
   # this method should return -1 for page_index values that are out of range
   def page_item_count(page_index)
-    if page_index >= @pageCount || page_index < 0
+    if page_index >= page_count || page_index < 0
       -1
-    elsif page_index != @pageCount - 1
+    elsif page_index != page_count - 1
       @items_per_page
     else 
       @collection.length % @items_per_page;
@@ -34,6 +34,6 @@ class PaginationHelper
     if item_index < 0 || item_index >= @collection.length
       -1
     end
-      (item_index / @itemsPerPage).floor
+      (item_index / @items_per_page).floor
   end
 end
